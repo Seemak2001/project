@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  .div1 {
+    max-height: 100%;
+    max-width: 30%;
+    border-style: double;
+    border-color: blue;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    color: black;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+</style>
+
+<body>
+  <div class="container text-center" style="background-image: url('bg.jpg') ; 
+  background-size: cover; ">
+
+    <div id="root" class="div1">
+      <h3> REGISTER </h3>
+      <form name="form" onsubmit="saveData()">
+
+        <h4>FIRST NAME</h4>
+        <input type="text" id="first" class="form control" placeholder="Enter your name" />
+        <h4>LAST NAME</h4>
+        <input type="text" id="last" class="form control" placeholder="Enter your last name" />
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="australia">INDIA</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+          <option value="canada">Australia</option>
+          <option value="usa">CHAINA</option>
+        </select>
+        <h4> USERNAME</h4>
+        <input type="text" id="username" class="form control" placeholder="Enter your email id" />
+        <h4> PASSWORD</h4>
+        <input type="password" id="password" class="form control" placeholder="Enter your password" /></br></br>
+
+        <button type="submit" id="save_btn" class="btn btn-primary" onClick="saveData()">Submit</button>
+      </form>
+    </div>
+
+    <div id="root" class="div1">
+      <h3> LOGIN </h3>
+      <form name="form" onsubmit="submit_form()">
+
+        <h4> USERNAME</h4>
+        <input type="text" id="us" placeholder="Enter your email id" />
+        <h4> PASSWORD</h4>
+        <input type="password" id="pd" placeholder="Enter your password" /></br></br>
+        <input type="submit" value="LOGIN" onClick="submit_form()" />
+
+      </form>
+    </div>
+
+  </div>
+</body>
+<script>
+  let username, password;
+  function saveData() {
+    let first, last, country;
+    first = document.getElementById("first").value;
+    last = document.getElementById("last").value;
+    country = document.getElementById("country").value;
+    username = document.getElementById("username").value;
+    password = document.getElementById("password").value;
+
+    localStorage.setItem("first", first);
+    localStorage.setItem("last", last);
+    localStorage.setItem("country", country);
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+  }
+  function submit_form() {
+    let us, pd ;
+    
+    us = document.getElementById("us").value;
+    pd = document.getElementById("pd").value;
+    user = document.getElementById("username").value;
+    pass = document.getElementById("password").value;
+    localStorage.setItem("us", us);
+    localStorage.setItem("pd", pd);
+    if(pass == pd && us == user)
+    {
+      alert("success");
+    }
+
+  }
+</script>
+
+</html>
